@@ -41,6 +41,6 @@ public class Telefone {
     }
 
     public String toString() {
-        return (String.format("Nome: %s | Data Nascimento %s | Telefone: %s", nome, dataNascimento, telefone));
+        return (String.format("%s | %s | %s", nome, dataNascimento, telefone));
     }
 }

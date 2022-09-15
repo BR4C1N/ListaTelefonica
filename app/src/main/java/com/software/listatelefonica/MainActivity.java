@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         telefoneDB.listar(listaTelefonica);
 
         editarTelefone = false;
+        campoNome.requestFocus();
 
         acaoComponentes();
     }

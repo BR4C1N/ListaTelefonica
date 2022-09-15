@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int k) {
                                                 telefoneDB.remover(listaTelefonica.get(i).getId());
+
                                                 telefoneDB.listar(listaTelefonica);
                                                 adapter.notifyDataSetChanged();
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     telefone.setTelefone(campoTelefone.getText().toString());
 
                     if (editarTelefone) {
-                        telefoneDB.atualizar(telefone);
+                        telefoneDB.editar(telefone);
 
                         Toast.makeText(MainActivity.this, "Editado com Sucesso!", Toast.LENGTH_LONG).show();
                     } else {
@@ -134,10 +135,10 @@ public class MainActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
 
                     telefone = null;
+                    editarTelefone = false;
                     campoNome.setText("");
                     campoDataNascimento.setText("");
                     campoTelefone.setText("");
-                    editarTelefone = false;
                 }
             }
         });

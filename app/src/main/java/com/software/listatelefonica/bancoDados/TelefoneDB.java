@@ -22,7 +22,7 @@ public class TelefoneDB {
 
         ContentValues valores = new ContentValues();
         valores.put("nome", telefone.getNome());
-        valores.put("dataNascimento", telefone.getDataNascimento().toString());
+        valores.put("dataNascimento", telefone.getDataNascimento());
         valores.put("telefone", telefone.getTelefone());
 
         conexao.insertOrThrow("listaTelefonica", null, valores);
@@ -30,12 +30,12 @@ public class TelefoneDB {
         conexao.close();
     }
 
-    public void atualizar(Telefone telefone) {
+    public void editar(Telefone telefone) {
         conexao = db.getWritableDatabase();
 
         ContentValues valores = new ContentValues();
         valores.put("nome", telefone.getNome());
-        valores.put("dataNascimento", telefone.getDataNascimento().toString());
+        valores.put("dataNascimento", telefone.getDataNascimento());
         valores.put("telefone", telefone.getTelefone());
 
         conexao.update("listaTelefonica", valores, "id=?", new String[]{telefone.getId().toString()});

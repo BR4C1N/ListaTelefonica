@@ -4,20 +4,20 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.software.listatelefonica.entidades.Telefones;
+import com.software.listatelefonica.entidades.Telefone;
 
 import java.util.Date;
 import java.util.List;
 
-public class TelefonesDB {
+public class TelefoneDB {
     private DBHelper db;
     private SQLiteDatabase conexao;
 
-    public TelefonesDB(DBHelper db) {
+    public TelefoneDB(DBHelper db) {
         this.db = db;
     }
 
-    public void inserir(Telefones telefone) {
+    public void inserir(Telefone telefone) {
         conexao = db.getWritableDatabase();
 
         ContentValues valores = new ContentValues();
@@ -30,7 +30,7 @@ public class TelefonesDB {
         conexao.close();
     }
 
-    public void atualizar(Telefones telefone) {
+    public void atualizar(Telefone telefone) {
         conexao = db.getWritableDatabase();
 
         ContentValues valores = new ContentValues();
@@ -59,7 +59,7 @@ public class TelefonesDB {
         Cursor query = conexao.query("listaTelefonica", colunas, null, null, null, null, "nome");
 
         while (query.moveToNext()) {
-            Telefones telefone = new Telefones();
+            Telefone telefone = new Telefone();
 
             telefone.setId(Integer.parseInt(query.getString(0)));
             telefone.setNome(query.getString(1));

@@ -2,7 +2,7 @@ package com.software.listatelefonica.entidades;
 
 import java.util.Date;
 
-public class Telefones {
+public class Telefone {
     private Integer id;
     private String nome;
     private Date dataNascimento;

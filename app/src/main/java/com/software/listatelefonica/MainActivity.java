@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                                                 telefoneDB.remover(listaTelefonica.get(i).getId());
                                                 telefoneDB.listar(listaTelefonica);
                                                 adapter.notifyDataSetChanged();
+
+                                                Toast.makeText(MainActivity.this, "Telefone Removido com Sucesso!", Toast.LENGTH_LONG).show();
                                             }
                                         })
                                         .setNegativeButton("Cancelar", null)
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (editarTelefone) {
                         telefoneDB.atualizar(telefone);
-                        
+
                         Toast.makeText(MainActivity.this, "Telefone Editado com Sucesso!", Toast.LENGTH_LONG).show();
                     } else {
                         telefoneDB.inserir(telefone);

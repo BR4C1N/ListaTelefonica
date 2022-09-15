@@ -64,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
         acaoComponentes();
     }
 
+    @Override
+    public void onBackPressed() {
+        telefone = null;
+        editarTelefone = false;
+        campoNome.setText("");
+        campoNome.requestFocus();
+        campoDataNascimento.setText("");
+        campoTelefone.setText("");
+
+        Toast.makeText(MainActivity.this, "Operação cancelada com Sucesso!", Toast.LENGTH_LONG).show();
+    }
+
     private void acaoComponentes() {
         listagemDados.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

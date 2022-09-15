@@ -63,7 +63,7 @@ public class TelefoneDB {
 
             telefone.setId(Integer.parseInt(query.getString(0)));
             telefone.setNome(query.getString(1));
-            telefone.setDataNascimento(new Date(query.getString(2)));
+            telefone.setDataNascimento(query.getString(2));
             telefone.setTelefone(query.getString(3));
 
             listaTelefonica.add(telefone);

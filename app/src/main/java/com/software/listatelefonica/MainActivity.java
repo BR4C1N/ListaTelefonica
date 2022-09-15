@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                 telefone.setId(listaTelefonica.get(i).getId());
 
                                 campoNome.setText(listaTelefonica.get(i).getNome());
-                                campoDataNascimento.setText(listaTelefonica.get(i).getDataNascimento().toString());
+                                campoDataNascimento.setText(listaTelefonica.get(i).getDataNascimento());
                                 campoTelefone.setText(listaTelefonica.get(i).getTelefone());
                             }
                         })
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     telefone.setNome(campoNome.getText().toString());
-                    telefone.setDataNascimento(new Date(campoDataNascimento.getText().toString()));
+                    telefone.setDataNascimento(campoDataNascimento.getText().toString());
                     telefone.setTelefone(campoTelefone.getText().toString());
 
                     if (editarTelefone) {

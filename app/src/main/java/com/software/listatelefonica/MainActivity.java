@@ -11,12 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.software.listatelefonica.bancoDados.DBHelper;
 import com.software.listatelefonica.bancoDados.TelefoneDB;
 import com.software.listatelefonica.entidades.Telefone;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -105,7 +107,36 @@ public class MainActivity extends AppCompatActivity {
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (campoNome.getText().toString().isEmpty() || campoDataNascimento.getText().toString().isEmpty() || campoTelefone.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Dados Inválidos!", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (editarTelefone == false) {
+                        telefone = new Telefone();
+                    }
 
+                    telefone.setNome(campoNome.getText().toString());
+                    telefone.setDataNascimento(new Date(campoDataNascimento.getText().toString()));
+                    telefone.setTelefone(campoTelefone.getText().toString());
+
+                    if (editarTelefone) {
+                        telefoneDB.atualizar(telefone);
+                        
+                        Toast.makeText(MainActivity.this, "Telefone Editado com Sucesso!", Toast.LENGTH_LONG).show();
+                    } else {
+                        telefoneDB.inserir(telefone);
+
+                        Toast.makeText(MainActivity.this, "Telefone Salvo com Sucesso!", Toast.LENGTH_LONG).show();
+                    }
+
+                    telefoneDB.listar(listaTelefonica);
+                    adapter.notifyDataSetChanged();
+
+                    telefone = null;
+                    campoNome.setText("");
+                    campoDataNascimento.setText("");
+                    campoTelefone.setText("");
+                    editarTelefone = false;
+                }
             }
         });
     }

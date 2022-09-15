@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     telefone = null;
                     editarTelefone = false;
                     campoNome.setText("");
+                    campoNome.requestFocus();
                     campoDataNascimento.setText("");
                     campoTelefone.setText("");
                 }
